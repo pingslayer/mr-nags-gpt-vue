@@ -1,38 +1,49 @@
-# mr-nags-gpt-vue
+# 🏏 Mr. Nags AI Chat Dashboard
 
-This template should help get you started developing with Vue 3 in Vite.
+Welcome to the **Official Fan-Made AI Chat Dashboard** for the one and only **Mr. Nags**! Built with a premium, South Indian-inspired aesthetic, this dashboard brings the "Boss of Bangalore" straight to your screen.
 
-## Recommended IDE Setup
+## 🌟 Features
+- **Authentic Personality**: Integrated with a Laravel AI SDK backend powered by the NagsAgent.
+- **Secure Authentication**: Built with Laravel Sanctum for secure login and registration.
+- **Persistent Memory**: Your conversations are saved, so Mr. Nags never forgets who you are (even if he denies it).
+- **Premium UI**:
+  - **Dark Mode**: Sleek, high-contrast South Indian theme (Saffron, Gold, Teal).
+  - **Glassmorphism**: Elegant blur effects on the sidebar and message bubbles.
+  - **Micro-Interactions**: Smooth transitions and thinking animations for a lively feel.
+- **Conversation Management**: Easily start new chats or delete old ones from the sidebar.
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## 🛠️ Tech Stack
+- **Frontend**: Vue 3 (Composition API, `<script setup>`)
+- **State Management**: Pinia
+- **Routing**: Vue Router
+- **Styling**: Bootstrap 5 + Custom CSS
+- **API**: Axios
+- **Icons**: Bootstrap Icons
 
-## Recommended Browser Setup
+## 🚀 Getting Started
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
+### 1. Installation
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### 2. Environment Configuration
+Ensure your backend is running at `http://mrnagsgpt.local/api` or update the `BASE_URL` in:
+- `src/stores/auth.js`
+- `src/stores/chat.js`
 
+### 3. Run Development Server
 ```sh
 npm run dev
 ```
 
-### Compile and Minify for Production
-
+### 4. Build for Production
 ```sh
 npm run build
 ```
+
+## 📸 Screenshots & Branding
+The dashboard features an integrated profile picture of Mr. Nags and a custom "Elite Club" theme for that premium Bangalore spirit.
+
+---
+*Created with love for RCB fans and Dosa lovers everywhere.* 🍛🏏
