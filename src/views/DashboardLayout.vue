@@ -1,5 +1,6 @@
 <script setup>
 import { onMounted } from 'vue';
+import { useRouter } from 'vue-router';
 import { useAuthStore } from '../stores/auth';
 import { useChatStore } from '../stores/chat';
 import Sidebar from '../components/Sidebar.vue';
@@ -7,10 +8,18 @@ import ChatWindow from '../components/ChatWindow.vue';
 
 const auth = useAuthStore();
 const chat = useChatStore();
+const router = useRouter();
 
 onMounted(() => {
   chat.fetchConversations();
 });
+
+const handleLogout = async () => {
+  console.log('Logout button clicked, initiating logout...');
+  await auth.logout();
+  console.log('Client state cleared, navigating to /login');
+  router.push('/login');
+};
 </script>
 
 <template>
@@ -38,17 +47,16 @@ onMounted(() => {
           </div>
         </div>
 
-        <div class="dropdown">
+        <div class="d-flex align-items-center gap-3">
+          <span class="text-light small d-none d-lg-inline opacity-75">
+            {{ auth.user?.email }}
+          </span>
           <button 
-            class="btn btn-nags-primary btn-sm rounded-pill px-3" 
-            type="button" 
-            data-bs-toggle="dropdown"
+            class="btn btn-danger btn-sm px-3 fw-bold" 
+            @click="handleLogout"
           >
-            {{ auth.user?.name || 'User' }}
+            Logout
           </button>
-          <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end glass-card shadow">
-            <li><a class="dropdown-item py-2" href="#" @click.prevent="auth.logout()"><i class="bi bi-box-arrow-right me-2"></i>Logout</a></li>
-          </ul>
         </div>
       </header>
 
@@ -62,5 +70,14 @@ onMounted(() => {
 header {
   height: 70px;
   background: var(--mrnags-dark);
+}
+
+.dropdown-item:hover {
+  background: rgba(220, 53, 69, 0.1);
+  color: #ff4d4d !important;
+}
+
+.hover-bg-danger-soft:hover {
+  background: rgba(220, 53, 69, 0.1) !important;
 }
 </style>
