@@ -1,4 +1,4 @@
-# 🏏 Mr. Nags AI Chat Dashboard
+# Mr. Nags AI Chat Dashboard 🏏 Peas ✌️
 
 Welcome to the **Official Fan-Made AI Chat Dashboard** for the one and only **Mr. Nags**! Built with a premium, South Indian-inspired aesthetic, this dashboard brings the "Boss of Bangalore" straight to your screen.
 
