@@ -32,61 +32,61 @@ const handleSubmit = async () => {
 
 <template>
   <div class="auth-container d-flex align-items-center justify-content-center min-vh-100">
-    <div class="glass-card p-5 shadow-lg" style="width: 100%; max-width: 450px;">
-      <div class="text-center mb-4">
-        <h1 class="display-6 fw-bold mb-0">
+    <div class="glass-card p-4 shadow-lg" style="width: 100%; max-width: 400px;">
+      <div class="text-center mb-3">
+        <h1 class="h3 fw-bold mb-0">
           <span style="color: var(--mrnags-saffron)">Mr.</span>
           <span style="color: var(--mrnags-gold)"> Nags</span>
         </h1>
-        <p class="text-muted small">Official Fan-Made AI Chat</p>
+        <p class="text-info small mb-0" style="font-size: 0.75rem;">Official Fan-Made AI Chat</p>
       </div>
 
-      <h2 class="h4 mb-4 text-center">{{ isLogin ? 'Namaste! Welcome Back' : 'Join the Fun' }}</h2>
+      <h2 class="h5 mb-3 text-center text-white">{{ isLogin ? 'Namaste! Welcome Back' : 'Join the Fun' }}</h2>
 
-      <div v-if="auth.error" class="alert alert-danger py-2 small mb-4" role="alert">
+      <div v-if="auth.error" class="alert alert-danger py-2 small mb-3" role="alert" style="font-size: 0.8rem;">
         {{ auth.error }}
       </div>
 
       <form @submit.prevent="handleSubmit">
-        <div v-if="!isLogin" class="mb-3">
-          <label class="form-label small text-muted">Full Name</label>
+        <div v-if="!isLogin" class="mb-2">
+          <label class="form-label small text-light opacity-75 mb-1">Full Name</label>
           <input 
             v-model="form.name" 
             type="text" 
-            class="form-control chat-input" 
+            class="form-control chat-input form-control-sm" 
             placeholder="Your name" 
             required
           >
         </div>
 
-        <div class="mb-3">
-          <label class="form-label small text-muted">Email Address</label>
+        <div class="mb-2">
+          <label class="form-label small text-light opacity-75 mb-1">Email Address</label>
           <input 
             v-model="form.email" 
             type="email" 
-            class="form-control chat-input" 
+            class="form-control chat-input form-control-sm" 
             placeholder="name@example.com" 
             required
           >
         </div>
 
-        <div class="mb-3">
-          <label class="form-label small text-muted">Password</label>
+        <div class="mb-2">
+          <label class="form-label small text-light opacity-75 mb-1">Password</label>
           <input 
             v-model="form.password" 
             type="password" 
-            class="form-control chat-input" 
+            class="form-control chat-input form-control-sm" 
             placeholder="••••••••" 
             required
           >
         </div>
 
-        <div v-if="!isLogin" class="mb-4">
-          <label class="form-label small text-muted">Confirm Password</label>
+        <div v-if="!isLogin" class="mb-3">
+          <label class="form-label small text-light opacity-75 mb-1">Confirm Password</label>
           <input 
             v-model="form.password_confirmation" 
             type="password" 
-            class="form-control chat-input" 
+            class="form-control chat-input form-control-sm" 
             placeholder="••••••••" 
             required
           >
@@ -94,21 +94,21 @@ const handleSubmit = async () => {
 
         <button 
           type="submit" 
-          class="btn btn-nags-primary w-100 py-2 mb-3"
+          class="btn btn-nags-primary w-100 py-2 mb-2 mt-2"
           :disabled="auth.loading"
         >
           <span v-if="auth.loading" class="spinner-border spinner-border-sm me-2"></span>
           {{ isLogin ? 'Enter The Shed' : 'Sign Up Now' }}
         </button>
 
-        <div class="text-center small">
+        <div class="text-center" style="font-size: 0.8rem;">
           <template v-if="isLogin">
-            <span class="text-muted">Don't have an account? </span>
-            <router-link to="/register" class="text-info text-decoration-none fw-bold">Register</router-link>
+            <span class="text-light opacity-75">Don't have an account? </span>
+            <router-link to="/register" class="text-warning text-decoration-none fw-bold">Register</router-link>
           </template>
           <template v-else>
-            <span class="text-muted">Already have an account? </span>
-            <router-link to="/login" class="text-info text-decoration-none fw-bold">Login</router-link>
+            <span class="text-light opacity-75">Already have an account? </span>
+            <router-link to="/login" class="text-warning text-decoration-none fw-bold">Login</router-link>
           </template>
         </div>
       </form>

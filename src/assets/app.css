@@ -150,15 +150,19 @@ body {
 .chat-input {
   background: var(--mrnags-glass);
   border: 1px solid var(--mrnags-glass-border);
-  color: white;
+  color: white !important;
   border-radius: 12px;
   padding: 12px 15px;
   resize: none;
+}
+
+.chat-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .chat-input:focus {
   background: rgba(255, 255, 255, 0.08);
   border-color: var(--mrnags-saffron);
   box-shadow: 0 0 0 0.25rem rgba(255, 153, 51, 0.1);
-  color: white;
+  color: white !important;
 }
