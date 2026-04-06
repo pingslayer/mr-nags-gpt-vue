@@ -11,7 +11,8 @@ const formatDate = (dateString) => {
 
 <template>
   <aside class="sidebar-glass d-none d-md-flex flex-column h-100" style="width: 280px;">
-    <div class="p-4 border-bottom border-light border-opacity-10">
+    <div class="p-4 border-bottom border-light border-opacity-10 text-center">
+      <img src="/mrnags.jpg" class="nags-avatar nags-avatar-sm mb-3 mx-auto d-block" alt="Logo">
       <button 
         class="btn btn-nags-primary w-100 py-2 d-flex align-items-center justify-content-center"
         @click="chat.startNewChat()"

@@ -41,12 +41,11 @@ const handleKeydown = (e) => {
       v-if="!chat.activeConversationId && !chat.messages.length" 
       class="flex-grow-1 d-flex flex-column align-items-center justify-content-center p-4 text-center"
     >
-      <div 
-        class="bg-nags-saffron rounded-circle mb-4 d-flex align-items-center justify-content-center shadow-lg" 
-        style="width: 120px; height: 120px; background: linear-gradient(var(--mrnags-saffron), var(--mrnags-gold))"
+      <img 
+        src="/mrnags.jpg" 
+        class="nags-avatar nags-avatar-lg mb-4" 
+        alt="Mr. Nags"
       >
-        <span class="display-1 fw-bold text-dark">N</span>
-      </div>
       <h2 class="fw-bold mb-2">Namaste! Mr. Nags here!</h2>
       <p class="text-muted col-md-6 mb-4">
         Don't ask too many questions, ok? I am very busy. 
@@ -68,22 +67,32 @@ const handleKeydown = (e) => {
       <div 
         v-for="msg in chat.messages" 
         :key="msg.id"
-        class="message-bubble"
+        class="message-bubble d-flex"
         :class="msg.role === 'user' ? 'message-user' : 'message-assistant'"
       >
-        <div class="fw-bold small mb-1 opacity-75">
-          {{ msg.role === 'user' ? 'You' : 'Mr. Nags' }}
+        <div v-if="msg.role === 'assistant'" class="me-3 mt-1 flex-shrink-0">
+          <img src="/mrnags.jpg" class="nags-avatar nags-avatar-sm" alt="Mr. Nags">
         </div>
-        <div class="content whitespace-pre-wrap">{{ msg.content }}</div>
+        <div class="flex-grow-1">
+          <div class="fw-bold small mb-1 opacity-75">
+            {{ msg.role === 'user' ? 'You' : 'Mr. Nags' }}
+          </div>
+          <div class="content whitespace-pre-wrap text-start">{{ msg.content }}</div>
+        </div>
       </div>
 
       <!-- Thinking Animation -->
-      <div v-if="chat.sending" class="message-bubble message-assistant">
-        <div class="fw-bold small mb-1 opacity-75">Mr. Nags</div>
-        <div class="thinking-pulse">
-          <div class="thinking-dot"></div>
-          <div class="thinking-dot"></div>
-          <div class="thinking-dot"></div>
+      <div v-if="chat.sending" class="message-bubble message-assistant d-flex">
+        <div class="me-3 mt-1 flex-shrink-0">
+          <img src="/mrnags.jpg" class="nags-avatar nags-avatar-sm" alt="Mr. Nags">
+        </div>
+        <div>
+          <div class="fw-bold small mb-1 opacity-75">Mr. Nags</div>
+          <div class="thinking-pulse">
+            <div class="thinking-dot"></div>
+            <div class="thinking-dot"></div>
+            <div class="thinking-dot"></div>
+          </div>
         </div>
       </div>
     </div>

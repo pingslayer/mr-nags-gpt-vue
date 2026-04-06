@@ -31,6 +31,25 @@ body {
   height: 100%;
 }
 
+.nags-avatar {
+  border: 1px solid var(--mrnags-saffron);
+  border-radius: 50% !important;
+  object-fit: cover;
+  background: var(--mrnags-dark);
+}
+
+.nags-avatar-sm {
+  width: 32px;
+  height: 32px;
+}
+
+.nags-avatar-lg {
+  width: 120px;
+  height: 120px;
+  border-width: 3px;
+  box-shadow: 0 0 20px rgba(255, 153, 51, 0.3);
+}
+
 .glass-card {
   background: var(--mrnags-glass);
   backdrop-filter: blur(12px);
