@@ -36,36 +36,30 @@ const formatDate = (dateString) => {
         <div 
           v-for="conv in chat.conversations" 
           :key="conv.id"
-          class="nav-link-nags d-flex align-items-center justify-content-between cursor-pointer"
+          class="nav-link-nags d-flex align-items-center cursor-pointer mb-1"
           :class="{ 'active': chat.activeConversationId === conv.id }"
           @click="chat.fetchConversation(conv.id)"
         >
-          <div class="text-truncate flex-grow-1 me-2">
-            <i class="bi bi-chat-left-dots me-2"></i>
-            {{ conv.title || 'Ongoing Chat' }}
+          <i class="bi bi-chat-left-text me-3 flex-shrink-0 opacity-75"></i>
+          
+          <div class="flex-grow-1 overflow-hidden min-width-0">
+            <div class="text-truncate fw-medium" style="font-size: 0.85rem;">
+              {{ conv.title || 'Ongoing Chat' }}
+            </div>
           </div>
-          <div class="d-flex align-items-center">
-            <span class="small opacity-50 me-2" style="font-size: 0.7rem;">
+
+          <div class="ms-2 flex-shrink-0 position-relative metadata-area" style="min-width: 45px; text-align: right;">
+            <span class="small opacity-50 date-label" style="font-size: 0.65rem;">
               {{ formatDate(conv.updated_at) }}
             </span>
             <button 
-              class="btn btn-link p-0 text-danger opacity-0 hover-opacity-100"
+              class="btn btn-link p-0 text-danger delete-btn position-absolute top-50 start-50 translate-middle"
               @click.stop="chat.deleteConversation(conv.id)"
             >
-              <i class="bi bi-trash3 small"></i>
+              <i class="bi bi-trash3-fill"></i>
             </button>
           </div>
         </div>
-      </div>
-    </div>
-
-    <div class="p-4 bg-dark bg-opacity-25 mt-auto border-top border-light border-opacity-10">
-      <div class="d-flex align-items-center glass-card p-2 border-0">
-        <div class="flex-grow-1 ms-2">
-          <p class="mb-0 small fw-bold">PRO Member</p>
-          <p class="mb-0 text-muted" style="font-size: 10px;">Unlimited Dosa Access</p>
-        </div>
-        <i class="bi bi-shield-check text-warning fs-5"></i>
       </div>
     </div>
   </aside>
@@ -74,13 +68,5 @@ const formatDate = (dateString) => {
 <style scoped>
 .cursor-pointer {
   cursor: pointer;
-}
-
-.hover-opacity-100 {
-  transition: opacity 0.2s ease;
-}
-
-.nav-link-nags:hover .hover-opacity-100 {
-  opacity: 1 !important;
 }
 </style>
