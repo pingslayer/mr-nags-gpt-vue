@@ -22,14 +22,14 @@ const formatDate = (dateString) => {
     </div>
 
     <div class="flex-grow-1 overflow-auto p-3">
-      <p class="text-muted small text-uppercase fw-bold mb-3 px-2">History</p>
+      <p class="text-light small text-uppercase fw-bold mb-3 px-2 opacity-50">History</p>
       
       <div v-if="chat.loading && !chat.conversations.length" class="text-center py-4">
         <div class="spinner-border spinner-border-sm text-warning" role="status"></div>
       </div>
 
       <div v-else-if="!chat.conversations.length" class="text-center py-4">
-        <p class="text-muted small">No chats yet!</p>
+        <p class="text-light small opacity-50">No chats yet!</p>
       </div>
 
       <div v-else>
@@ -40,7 +40,7 @@ const formatDate = (dateString) => {
           :class="{ 'active': chat.activeConversationId === conv.id }"
           @click="chat.fetchConversation(conv.id)"
         >
-          <i class="bi bi-chat-left-text me-3 flex-shrink-0 opacity-75"></i>
+          <i class="bi bi-chat-left-text me-3 flex-shrink-0 opacity-100" style="color: var(--mrnags-saffron)"></i>
           
           <div class="flex-grow-1 overflow-hidden min-width-0">
             <div class="text-truncate fw-medium" style="font-size: 0.85rem;">
@@ -49,7 +49,7 @@ const formatDate = (dateString) => {
           </div>
 
           <div class="ms-2 flex-shrink-0 position-relative metadata-area" style="min-width: 45px; text-align: right;">
-            <span class="small opacity-50 date-label" style="font-size: 0.65rem;">
+            <span class="small opacity-75 date-label" style="font-size: 0.65rem;">
               {{ formatDate(conv.updated_at) }}
             </span>
             <button 
